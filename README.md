@@ -9,14 +9,16 @@ Game of Thrones. Inspiration for the actual project was taken from
 ## Installation
 
 ```shell
-virtualenv <virtualenv_name>
-cd Targaryen
+virtualenv -p python3 <virtualenv_name>
+cd <virtualenv_name>
+. bin/activate
 git clone https://github.com/MattLombana/Targaryen
 cd Targaryen
 pip3 install -Ur requirements.txt
 ```
 
-Make sure to replace `<virtualenv_name>` with your actual name. I like to use Targaryen-virt
+Make sure to replace `<virtualenv_name>` with a name for your virtual
+environment. I like to use Targaryen-virt
 
 ## Configuration
 
@@ -25,11 +27,11 @@ There are several files to configure before Targaryen can be run. They are:
 * machines.local.yml
 
 ```shell
-cp machines.yml machines.local.yml
-vim machines.local.yml
+cp conf/machines.yml conf/machines.local.yml
+vim conf/machines.local.yml
 ```
 
-### [machines.local.yml](./conig/machines.yml)
+### [machines.local.yml](./conf/machines.yml)
 
 Machine specifications should be placed in here. machines.yml is a template,
 and configurations will be loaded from machines.local.yml before being loaded
