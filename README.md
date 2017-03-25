@@ -31,7 +31,7 @@ cp conf/machines.yml conf/machines.local.yml
 vim conf/machines.local.yml
 ```
 
-### [machines.local.yml](./conf/machines.yml)
+### [machines.local.yml](./targaryen/conf/machines.yml)
 
 Machine specifications should be placed in here. machines.yml is a template,
 and configurations will be loaded from machines.local.yml before being loaded

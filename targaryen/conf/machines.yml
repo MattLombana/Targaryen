@@ -1,0 +1,112 @@
+# Template File (Examples), copy and edit to your own specification
+
+# This machine/instance
+  # Type must match one of [controller, servers, workers]
+  # Name must match one list item in the appropriate type
+this_instance:
+  type: server
+  name: Master1
+
+# Performance Monitoring Tools Configuration
+tools:
+  grafana:
+    enabled: false
+    default_dashboard: default-dash
+    ip_address: 10.20.30.40
+    port: 9001
+# Logging Options
+logging:
+  level: DEBUG
+  # All possible levels include (In increasing order of verbosity):
+  # NOTSET, CRITICAL, ERROR, WARNING, INFO, DEBUG, VDEBUG
+
+# Different machines that Targaryen can use
+machines:
+  # Controller that initially breaks work up, and sends portions to other servers to divide further
+  #  There can only be one of these specified
+  controller:
+    name: Controller1
+    hostname: 10.20.30.40
+    send_port: 43444
+    receive_port: 43445
+
+  # Servers that receive work from the controller, and dispatch work to workers
+  servers:
+    - Master1:
+        hostname: 10.20.30.40
+        send_port: 12345
+        receive_port: 12346
+        reporting_workers:
+          - worker1
+          - worker2
+          - worker3
+    - Master2:
+        hostname: 10.20.30.40
+        send_port: 12345
+        receive_port: 12346
+        reporting_workers:
+          - worker4
+          - worker5
+          - worker6
+
+  # Workers that receive work from servers, and compute the result
+  workers:
+    - worker1:
+        hostname: 10.20.30.40
+        send_port: 10000
+        receive_port: 10001
+        direct_controller: Master1
+    - worker2:
+        hostname: 10.20.30.40
+        send_port: 10000
+        receive_port: 10001
+        direct_controller: Master1
+    - worker3:
+        hostname: 10.20.30.40
+        send_port: 10000
+        receive_port: 10001
+        direct_controller: Master1
+    - worker4:
+        hostname: 10.20.30.40
+        send_port: 10000
+        receive_port: 10001
+        direct_controller: Master2
+    - worker5:
+        hostname: 10.20.30.40
+        send_port: 10000
+        receive_port: 10001
+        direct_controller: Master2
+    - worker6:
+        hostname: 10.20.30.40
+        send_port: 10000
+        receive_port: 10001
+        direct_controller: Master2
+
+# Based of of this file, a tree of available machines is constructed:
+#
+#                                    Controller1
+#                                        /\
+#                                       /  \
+#                                      /    \
+#                                     /      \
+#                                    /        \
+#                                   /          \
+#                                  /            \
+#                                 /              \
+#                                /                \
+#                               /                  \
+#                              /                    \
+#                             /                      \
+#                            /                        \
+#                           /                          \
+#                          /                            \
+#                      Server1                       Server2
+#                       / | \                         / | \
+#                      /  |  \                       /  |  \
+#                     /   |   \                     /   |   \
+#                    /    |    \                   /    |    \
+#                   /     |     \                 /     |     \
+#                  /      |      \               /      |      \
+#                 /       |       \             /       |       \
+#              Worker1 Worker2 Worker3       Worker4 Worker5 Worker6
+#
