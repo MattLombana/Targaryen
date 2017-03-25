@@ -3,7 +3,7 @@
 # This machine/instance
   # Type must match one of [controller, servers, workers]
   # Name must match one list item in the appropriate type
-this_instance:
+instance:
   type: server
   name: Master1
 
