@@ -41,3 +41,11 @@ Any files with *.local.* in the filename will be ignored.
 ## Running Targaryen
 
 Coming Soon!
+
+## Contributing to Targaryen
+
+Right now, there's not much to do, as I haven't really done anything.
+Under the projects tab, the various projects and the TODO's associated
+with them can be found. If you want something to be done, create an issue.
+
+If you find a bug, please create an issue and apply one or more appropriate labels.
