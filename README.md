@@ -1,8 +1,8 @@
 # Targaryen
 
-A distributed computing framework, written in python. This is in no way
+A distributed computing framework, written in Python. This is in no way
 "perfect" and is a work in progress. The name draws inspiration from the
-Targaryen Sigil, a three headed dragon. This is the result of watching too much
+Targaryen sigil, a three headed dragon. This is the result of watching too much
 Game of Thrones. Inspiration for the actual project was taken from
 [bashmu](https://github.com/renmusxd/bashmu)
 
